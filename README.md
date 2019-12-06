@@ -1,8 +1,8 @@
 # CNN
 CNN code from scratch on CIFAR10 dataset
 
-ex to run code:
-dataobj = Data()
+#ex to run code:
+dataobj = Data() <br/>
 (trainData, trainLabel), (testData, testLabel) = dataobj.load_data()
 model = CNN()
 model.addconv(10, (3, 3, 3), "ReLU", (32, 32, 3))
