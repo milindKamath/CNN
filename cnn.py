@@ -470,28 +470,3 @@ class CNN:
                 cmatrix[pred, targ] += 1
         print((np.trace(self.Cmatrix) / np.sum(self.Cmatrix)) * 100, "% accuracy")
         sns.heatmap(self.Cmatrix, annot=True, cbar=False)
-
-
-dataobj = Data()
-(trainData, trainLabel), (testData, testLabel) = dataobj.load_data()
-model = CNN()
-model.addconv(10, (3, 3, 3), "ReLU", (32, 32, 3))
-model.addpool((2, 2), 2)
-model.addconv(8, (3, 3, 10), "ReLU")
-model.addpool((2, 2), 2)
-# model.addconv(10, (3, 3, 15), "ReLU")       # omit
-# model.addpool((2, 2), 2)                    # omit
-# model.addDense(100, "ReLU")                  # omit
-model.addDense(80, "ReLU")
-model.addDense(10, "Softmax")
-model.summary()
-start = time.time()
-trainedModel = model.fit(trainData, trainLabel, epoch=30, savelayer=True)       # epoch =2
-end = time.time()
-print("Time taken: ", (end-start), "seconds")
-model.history()
-
-# trainedModel = open('model', 'rb')
-# layers = pickle.load(trainedModel)
-# print(layers)
-# model.predict(layers, testData, testLabel)
