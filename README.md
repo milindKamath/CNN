@@ -1,7 +1,7 @@
 # CNN
 CNN code from scratch on CIFAR10 dataset
 
-# ex to run code: 
+# Example to run code: 
 dataobj = Data() <br/>
 (trainData, trainLabel), (testData, testLabel) = dataobj.load_data() <br/>
 model = CNN() <br/>
